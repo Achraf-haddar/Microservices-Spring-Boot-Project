@@ -63,6 +63,34 @@
                     </excludes>
                 </configuration>
             </plugin>
+<!--            Building Java containers with Jib: it builds containers without a Dockerfile or requiring a
+                Dcoker installation. To build the images, we use mvc clean compile jib:build -->
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:17.0.4.1_1-jre</image>
+                    </from>
+                    <to>
+                        <image>registry.hub.docker.com/melkeor/${project.artifactId}</image>
+                        <auth>
+                            <username>melkeor</username>
+                            <password>haddar27959552</password>
+                        </auth>
+                    </to>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>dockerBuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
